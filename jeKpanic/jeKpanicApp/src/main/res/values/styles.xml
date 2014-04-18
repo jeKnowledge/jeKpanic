@@ -5,4 +5,8 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <color name="jek_blue">#6BCEEC</color>
+    <color name="jek_dark_blue">#008FC5</color>
+    <color name="white">#FFFFFF</color>
+
 </resources>

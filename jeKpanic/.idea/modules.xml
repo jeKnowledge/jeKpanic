@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ProjectModuleManager">
-    <modules />
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/jeKpanic.iml" filepath="$PROJECT_DIR$/jeKpanic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jeKpanicApp/jeKpanicApp.iml" filepath="$PROJECT_DIR$/jeKpanicApp/jeKpanicApp.iml" />
+    </modules>
   </component>
 </project>
 
