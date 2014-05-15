@@ -8,7 +8,9 @@ import android.widget.Toast;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParsePush;
 import com.parse.ParseUser;
+import com.parse.PushService;
 import com.parse.SaveCallback;
 
 import org.json.*;
@@ -36,6 +38,10 @@ public class Button extends Activity
                 if(e == null)
                 {
                     Toast.makeText(getApplicationContext(), "Senta-te, o cartão já vem ;)", Toast.LENGTH_SHORT).show();
+                    ParsePush push = new ParsePush();
+                    push.setChannel("Everyone");
+                    push.setMessage("Hey!");
+                    push.sendInBackground();
                 }
                 else
                 {

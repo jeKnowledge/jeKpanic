@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.parse.LogInCallback;
 import com.parse.Parse;
+import com.parse.ParseAnalytics;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
@@ -29,7 +30,7 @@ public class Login extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        Parse.initialize(this, "hlYxbJG5mtCVV2dH7Ku70fEvq42V0S0C1kCO7sof", "r4M51AV8vgl7lIwrH81UY7pLLZNcBs3w15Eg6ab4");
+        ParseAnalytics.trackAppOpened(getIntent());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
     }
