@@ -3,8 +3,10 @@
 
     <string name="app_name">jeKpanic</string>
     <string name="login_button">Login</string>
-    <string name="signup_button"><u>Sign up</u></string>
+    <string name="signup_button">Sign up</string>
     <string name="error_field_required">Campo obrigatório</string>
     <string name="dont_have_account">Don\'t have a jeKpanic Account?</string>
+    <string name="message">Message:</string>
+    <string name="msg_to_send">Hello, (your name) wants the card!</string>
 
 </resources>

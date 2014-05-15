@@ -19,4 +19,13 @@ public class Request extends ParseObject
     {
         put("owner", owner.getObjectId());
     }
+
+    public void setMsg(String msg){
+        put("msg", msg);
+    }
+
+    public String getMsg()
+    {
+        return getString("msg");
+    }
 }

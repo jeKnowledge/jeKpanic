@@ -7,25 +7,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.LogInCallback;
-import com.parse.Parse;
 import com.parse.ParseAnalytics;
 import com.parse.ParseException;
-import com.parse.ParseObject;
 import com.parse.ParseUser;
 
+/**
+ * Permite efectuar o login do utilizador, e fornece registo à área de registo de um novo utilizador
+ */
 public class Login extends Activity {
 
     protected EditText usernameField;
-    protected String username;
     protected EditText passwordField;
-    protected String password;
-    protected Button login_btn = null;
-    protected Button sign_up_btn = null;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -33,41 +28,50 @@ public class Login extends Activity {
         ParseAnalytics.trackAppOpened(getIntent());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
+        usernameField = (EditText)findViewById(R.id.username_field);
+        passwordField = (EditText)findViewById(R.id.password_field);
     }
 
     public void attemptLogin(View view)
     {
-        usernameField = (EditText)findViewById(R.id.username_field);
-        username = usernameField.getText().toString();
-        passwordField = (EditText)findViewById(R.id.password_field);
-        password = passwordField.getText().toString();
-
-        if(username.isEmpty())
-            usernameField.setError(getString(R.string.error_field_required));
-        else if(password.isEmpty())
-            passwordField.setError(getString(R.string.error_field_required));
-        else
+        if(requiredFields(getUsername(), getPassword()))
         {
-            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-
-            imm.hideSoftInputFromWindow(usernameField.getWindowToken(), 0);
-            imm.hideSoftInputFromWindow(passwordField.getWindowToken(), 0);
-
-            ParseUser.logInInBackground(username, password, new LogInCallback() {
+            ParseUser.logInInBackground(getUsername(), getPassword(), new LogInCallback() {
                 @Override
                 public void done(ParseUser parseUser, ParseException e) {
                     if(e == null)
                         loginSuccessful();
                     else
-                        loginUnSuccessful();
+                        loginUnSuccessful(e.getMessage());
                 }
             });
         }
     }
 
-    public void loginUnSuccessful()
+    private boolean requiredFields(String username, String password)
     {
-        Toast.makeText(getApplicationContext(), "Username or Password is invalid.", Toast.LENGTH_SHORT).show();
+        if(username.isEmpty() || password.isEmpty())
+        {
+            Toast.makeText(getApplicationContext(), "Please, check the required field.", Toast.LENGTH_SHORT).show();
+            //Fecha a janela do teclado
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(usernameField.getWindowToken(), 0);
+            imm.hideSoftInputFromWindow(passwordField.getWindowToken(), 0);
+
+            if(username.isEmpty())
+                usernameField.setError("Required");
+            else if(password.isEmpty())
+                passwordField.setError("Required");
+            return false;
+        }
+        else
+            return true;
+    }
+
+    public void loginUnSuccessful(String error)
+    {
+        Toast.makeText(getApplicationContext(), "" + error, Toast.LENGTH_SHORT).show();
     }
 
     public void loginSuccessful()
@@ -77,10 +81,8 @@ public class Login extends Activity {
 
     public void sign_up(View view)
     {
-        EditText usernameField = (EditText)findViewById(R.id.username_field);
-        username = usernameField.getText().toString();
-        EditText passwordField = (EditText)findViewById(R.id.password_field);
-        password = passwordField.getText().toString();
+        String username = getUsername();
+        String password = getPassword();
 
         Intent intent = new Intent(getBaseContext(), Sign_up.class);
         Bundle args = new Bundle();
@@ -92,11 +94,11 @@ public class Login extends Activity {
 
     public String getUsername()
     {
-        return this.username;
+        return this.usernameField.getText().toString();
     }
 
     public String getPassword()
     {
-        return this.password;
+        return this.passwordField.getText().toString();
     }
 }
