@@ -7,8 +7,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="D:\Users\Tomas\Documents\GitHub\jeKpanic\jeKpanic" />
-            <option value="D:\Users\Tomas\Documents\GitHub\jeKpanic\jeKpanic\jeKpanicApp" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/jeKpanicApp" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -7,6 +7,8 @@
 
     <color name="jek_blue">#6BCEEC</color>
     <color name="jek_dark_blue">#008FC5</color>
+    <color name="jek_dark_blue_pressed">#0081B1</color>
     <color name="white">#FFFFFF</color>
+    <color name="grey">#C6C6C6</color>
 
 </resources>

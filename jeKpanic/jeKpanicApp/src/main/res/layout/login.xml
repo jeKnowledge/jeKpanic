@@ -17,35 +17,67 @@
     <EditText
         android:id="@+id/username_field"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_below="@+id/ic_lock"
         android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:inputType="text"
-        android:gravity="left"
-        android:textColor="@color/white"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/secondary_text_light"
+        android:paddingLeft="5dp"
         android:hint="Username"
-        android:textColorHint="@color/white"/>
+        android:textColorHint="@android:color/secondary_text_dark"
+        android:background="@drawable/text_input"/>
 
     <EditText
         android:id="@+id/password_field"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:password="true"
         android:inputType="textPassword"
-        android:gravity="left"
+        android:gravity="center_vertical"
+        android:background="@drawable/text_input"
         android:layout_below="@+id/username_field"
-        android:textColor="@color/white"
+        android:textColor="@android:color/secondary_text_light"
+        android:paddingLeft="5dp"
         android:hint="Password"
-        android:textColorHint="@color/white"/>
+        android:textColorHint="@android:color/secondary_text_dark"/>
 
     <Button
         android:id="@+id/login_btn"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/login_button"
-        android:layout_alignParentBottom="true"
-        android:background="@color/jek_dark_blue"
+        android:layout_below="@+id/password_field"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/button_state"
         android:textColor="@color/white"
-        android:onClick="login"/>
+        android:onClick="attemptLogin"/>
+
+    <TextView
+        android:id="@+id/dont_have_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_btn"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:text="@string/dont_have_account"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dont_have_account"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:text="@string/signup_button"
+        android:clickable="true"
+        android:onClick="sign_up"/>
 
 </RelativeLayout>

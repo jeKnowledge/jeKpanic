@@ -1,0 +1,86 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/jek_blue"
+    tools:context="${packageName}.${activityClass}">
+
+    <ImageView
+        android:id="@+id/new_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/new_user"
+        />
+
+    <EditText
+        android:id="@+id/new_email"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/new_user"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/white"
+        android:hint="E-mail"
+        android:singleLine="true"
+        android:textColorHint="@color/grey"
+        />
+
+    <EditText
+        android:id="@+id/new_username"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        android:singleLine="true"
+        android:layout_below="@+id/new_email"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
+        />
+
+    <EditText
+        android:id="@+id/new_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/new_username"
+        android:hint="Name"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
+        />
+
+    <EditText
+        android:id="@+id/new_password"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:layout_below="@+id/new_name"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
+        />
+
+    <EditText
+        android:id="@+id/new_password_retype"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Retype password"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:layout_below="@+id/new_password"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
+        />
+
+    <Button
+        android:id="@+id/signup_btn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/signup_button"
+        android:layout_below="@+id/new_password_retype"
+        android:background="@color/jek_dark_blue"
+        android:textColor="@color/white"
+        android:onClick="sign_up"
+        />
+
+</RelativeLayout>
